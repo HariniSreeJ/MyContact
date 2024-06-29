@@ -7,10 +7,11 @@ import {toast} from 'react-toastify';
 
 
 const Register = () => {
-  const [values,setValues]=useState({
+  const [values,setValues]=useState({ 
     name:'',
     email:'',
     password:''  })
+    ////frontend errors
     //frontend errors
 
     const [errors,setErrors]=useState({})
