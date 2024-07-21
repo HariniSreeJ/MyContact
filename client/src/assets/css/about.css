@@ -1,0 +1,33 @@
+.about {
+    display: flex;  /* Corrected from flexbox to flex */
+    color: #ffffff;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding-inline: 30px;
+    background-image: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.7)), url("../contact-about.jpg");
+    background-size: cover;  /* Ensures the background image covers the entire container */
+    background-position: center;  /* Centers the background image */
+    background-repeat: no-repeat;  /* Prevents the background image from repeating */
+}
+
+.about-title{
+    color:azure;
+    text-align: center;
+    justify-content: top;
+    padding:5%;
+    font-size: xx-large;
+}
+
+.about-para {
+    justify-content: center;
+    color: cornsilk;
+    padding: 5%;  /* Reduced padding */
+    font-size: x-large;  /* Reduced font size */
+    border-width: 2px;
+    border-color: aqua;
+    border-style: solid;
+    max-width: 1200px;  /* Set a maximum width for the paragraph */
+    text-align: center;  /* Center the text */
+}

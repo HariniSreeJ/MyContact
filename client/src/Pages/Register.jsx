@@ -11,7 +11,7 @@ const Register = () => {
     name:'',
     email:'',
     password:''  })
-    ////frontend errors
+    //frontend errors
     //frontend errors
 
     const [errors,setErrors]=useState({})
@@ -117,3 +117,8 @@ const Register = () => {
 };
 
 export default Register
+
+
+
+
+

@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import '../assets/css/form.css'
 import Validation from '../Components/Validation';
 import {Link, useNavigate} from "react-router-dom";
 import axios from 'axios'
 import {toast} from 'react-toastify';
+import { UserContext } from '../App';
+
 
 
 const Login = () => {
@@ -11,6 +13,7 @@ const Login = () => {
     email:'',
     password:''  })
     //frontend errors
+    const{user,setUser}=useContext(UserContext)
 
     const [errors,setErrors]=useState({})
     const navigate=useNavigate()
@@ -26,18 +29,21 @@ const Login = () => {
       setErrors(errs)
 
       if( errs.email===""&&errs.password===""){
-        axios.post('http://localhost:3000/myContact/register',values)
+        axios.post('http://localhost:3000/myContact/login',values)
         //then account is created
         .then(res=> {
           if(res.data.success) {
-            toast.success("Account Created Successfully",{
+            toast.success("Login Successfully",{
               position:"top-right",
               autoclose:5000
             })
-            navigate('/login')
+            localStorage.setItem("token",res.data.token)
+            setUser(res.data.user)
+            navigate('/')
           }
             
         }).catch(err=>{
+            console.log(err)
             if(err.response.data.errors)
             {  setServerErrors(err.response.data.errors)}
             else{
@@ -92,8 +98,8 @@ const Login = () => {
             ))
           )
         }
-        <button className="form-btn">Register</button>
-        <p>Already Registered? <Link to="/login">Login</Link></p>
+        <button className="form-btn">Login</button>
+        <p>Don't Have Account? <Link to="/register">Register</Link></p>
       </form>
       </div>
   );

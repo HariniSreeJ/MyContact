@@ -10,7 +10,7 @@ app.use(cors())
 dotenv.config({path:"./config/.env"})
 
 
-app.use('./myContact',Router)
+app.use('/myContact',Router)
 app.listen(process.env.PORT,()=>{
     console.log("App is running")
 })
